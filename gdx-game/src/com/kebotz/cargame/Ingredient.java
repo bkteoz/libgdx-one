@@ -11,4 +11,8 @@ public class Ingredient
 	public void draw(Batch batch){
 		
 	}
+    public void updatePosition()
+    {
+
+    }
 }
