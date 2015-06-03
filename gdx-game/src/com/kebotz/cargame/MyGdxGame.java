@@ -3,6 +3,8 @@ package com.kebotz.cargame;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.*;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Vector2;
 
 public class MyGdxGame implements ApplicationListener,InputProcessor
 {
@@ -72,6 +74,9 @@ public class MyGdxGame implements ApplicationListener,InputProcessor
 	SpriteBatch batch;
 	BitmapFont font;
 
+    ShapeRenderer shapeRenderer;
+    Ingredient ingredient;
+
 	@Override
 	public void create()
 	{
@@ -80,6 +85,8 @@ public class MyGdxGame implements ApplicationListener,InputProcessor
 		font = new BitmapFont();
 		font.setColor(Color.BLACK);
 		Gdx.input.setInputProcessor(this);
+        shapeRenderer = new ShapeRenderer();
+        ingredient = new Ingredient();
 	}
 
 	@Override
@@ -92,6 +99,13 @@ public class MyGdxGame implements ApplicationListener,InputProcessor
 				   Gdx.graphics.getWidth() / 2, Gdx.graphics.getWidth() / 2);
 		font.draw(batch, "x:"+tx+" y:"+ty,100,100);
 		batch.end();
+
+        ingredient.updatePosition(new Vector2(tx, ty));
+
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+        ingredient.draw(shapeRenderer);
+        shapeRenderer.end();
+
 	}
 
 	@Override
