@@ -4,16 +4,82 @@ import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.*;
 
-public class MyGdxGame implements ApplicationListener
+public class MyGdxGame implements ApplicationListener,InputProcessor
 {
+
+	int tx, ty; //for finger touch drag
+	@Override
+	public boolean keyUp(int p1)
+	{
+		// TODO: Implement this method
+		return false;
+	}
+
+	@Override
+	public boolean keyTyped(char p1)
+	{
+		// TODO: Implement this method
+		return false;
+	}
+
+
+	@Override
+	public boolean keyDown(int p1)
+	{
+		// TODO: Implement this method
+		return false;
+	}
+
+
+	@Override
+	public boolean touchDown(int p1, int p2, int p3, int p4)
+	{
+		// TODO: Implement this method
+		return false;
+	}
+
+	@Override
+	public boolean touchUp(int p1, int p2, int p3, int p4)
+	{
+		// TODO: Implement this method
+		return false;
+	}
+
+	@Override
+	public boolean touchDragged(int p1, int p2, int p3)
+	{
+		// TODO: Implement this method
+		tx=p1;
+		ty=p2;
+		return true;
+	}
+
+	@Override
+	public boolean mouseMoved(int p1, int p2)
+	{
+		// TODO: Implement this method
+		return false;
+	}
+
+	@Override
+	public boolean scrolled(int p1)
+	{
+		// TODO: Implement this method
+		return false;
+	}
+
 	Texture texture;
 	SpriteBatch batch;
+	BitmapFont font;
 
 	@Override
 	public void create()
 	{
 		texture = new Texture(Gdx.files.internal("android.jpg"));
 		batch = new SpriteBatch();
+		font = new BitmapFont();
+		font.setColor(Color.BLACK);
+		Gdx.input.setInputProcessor(this);
 	}
 
 	@Override
@@ -24,6 +90,7 @@ public class MyGdxGame implements ApplicationListener
 		batch.begin();
 		batch.draw(texture, Gdx.graphics.getWidth() / 4, 0, 
 				   Gdx.graphics.getWidth() / 2, Gdx.graphics.getWidth() / 2);
+		font.draw(batch, "x:"+tx+" y:"+ty,100,100);
 		batch.end();
 	}
 
@@ -46,4 +113,5 @@ public class MyGdxGame implements ApplicationListener
 	public void resume()
 	{
 	}
+	
 }
