@@ -99,7 +99,7 @@ public class MyGdxGame implements ApplicationListener,InputProcessor
 				   Gdx.graphics.getWidth() / 2, Gdx.graphics.getWidth() / 2);
 		font.draw(batch, "x:"+tx+" y:"+ty,100,100);
 		batch.end();
-
+		//maybe create vextor is slow...
         ingredient.updatePosition(new Vector2(tx, ty));
 
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
