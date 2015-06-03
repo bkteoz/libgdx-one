@@ -11,8 +11,8 @@ public class Ingredient
 	public void draw(Batch batch){
 		
 	}
-    public void updatePosition()
+    public void updatePosition(Vector2 pos)
     {
-
+        this.position = pos;
     }
 }
