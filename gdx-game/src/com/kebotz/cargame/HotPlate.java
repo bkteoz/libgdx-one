@@ -1,8 +1,6 @@
 package com.kebotz.cargame;
-import java.security.*;
 import com.badlogic.gdx.graphics.glutils.*;
 import com.badlogic.gdx.math.*;
-import android.util.*;
 import com.badlogic.gdx.graphics.*;
 
 public class HotPlate
